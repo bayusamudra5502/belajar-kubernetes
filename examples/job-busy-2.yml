@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hello-world-job
+spec:
+  # Spek punya si job
+  completions: 10
+  parallelism: 20
+  template:
+    metadata:
+      name: hello-world-job
+    spec:
+      # Ini speknya si pod
+      restartPolicy: OnFailure
+      containers:
+        - name: hello-world-container
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args: ["echo 'Hello world'; sleep 3"]

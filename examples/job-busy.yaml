@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: cobain-job
+spec:
+  backoffLimit: 3
+  template:
+    metadata:
+      name: hello-world-job
+    spec:
+      restartPolicy: OnFailure
+      containers:
+        - name: halo-container
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args:
+            - "echo 'Halo, Dunia :D'"
