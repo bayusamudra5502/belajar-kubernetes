@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: belajar-cronjob
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    # Templatenya si job
+    metadata:
+      name: job-akuh
+    spec:
+      # Klo dah 60 detik, langsung shutdown
+      activeDeadlineSeconds: 60
+      # Klo dah selesai, 30 detik hapus job ini
+      ttlSecondsAfterFinished: 30
+      template:
+        metadata:
+          name: hello-world-job
+        spec:
+          # Ini speknya si pod
+          restartPolicy: OnFailure
+          containers:
+            - name: hello-world-container
+              image: busybox
+              command: ["/bin/sh", "-c"]
+              args: ["echo 'Hello world'; sleep 8"]
