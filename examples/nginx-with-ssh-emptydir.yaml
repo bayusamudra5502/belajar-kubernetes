@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-with-ssh
+spec:
+  containers:
+    - name: ssh
+      image: circleci/sshd:0.1.53-8ca6ee3
+      resources:
+        limits:
+          cpu: 500m
+          memory: 500M
+      volumeMounts:
+        - mountPath: /var/data
+          name: bersama
+    - name: nginx
+      image: nginx:latest
+      resources:
+        limits:
+          cpu: 500m
+          memory: 500M
+      volumeMounts:
+        - mountPath: /usr/share/nginx/html
+          name: bersama
+  volumes:
+    # Jenis volume bisa lihat di https://kubernetes.io/docs/concepts/storage/volumes/#volume-types
+    - name: bersama
+      emptyDir: {}

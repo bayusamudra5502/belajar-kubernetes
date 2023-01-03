@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  volumes:
+    - name: config-volume
+      configMap:
+        name: game-api
+  containers:
+    - name: nginx
+      image: nginx
+      resources:
+        limits:
+          cpu: 500m
+          memory: 500M
+      volumeMounts:
+        - name: config-volume
+          mountPath: /etc/konfig

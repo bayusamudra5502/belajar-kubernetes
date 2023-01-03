@@ -8,4 +8,10 @@ Anda bisa melihat slide materinya disini :
 
 https://docs.google.com/presentation/d/1NJQqJd89k1od_o9Kz-79IQ_CQYDCJKWunCtpgkHQLi4/edit?usp=sharing
 
+## My Curated Questions
 
+Pertanyaan"ku yg dikurasi:
+
+### Gimana klo mo connect docker ke private registry?
+
+Lihat di https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
