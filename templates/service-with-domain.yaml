@@ -6,6 +6,8 @@ metadata:
     label-key1: label-value1
 spec:
   type: ExternalName
+
+  # Alias dari external-service.default.svc.cluster.local
   externalName: example.com
   ports:
     - port: 80
