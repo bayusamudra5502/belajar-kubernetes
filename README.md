@@ -15,3 +15,11 @@ Pertanyaan"ku yg dikurasi:
 ### Gimana klo mo connect docker ke private registry?
 
 Lihat di https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+
+### Gimana Cara Buat config atau secret dari file?
+
+```sh
+# cm adalah configmaps
+kubectl create cm game-api --from-env-file game.properties --from-env-file ui.properties
+kubectl create cm game-api --from-file game.properties --from-file ui.properties
+```
