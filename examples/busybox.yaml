@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-utils
+  labels:
+    name: nginx
+spec:
+  containers:
+    - name: busybox
+      image: busybox:latest
+      command:
+        - sleep
+        - "infinity"

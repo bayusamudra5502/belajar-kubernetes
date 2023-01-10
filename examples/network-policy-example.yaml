@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+
+# INI JALAN SYARAT KETENTUAN BERLAKU
+# LIHAT DOKUMENTASI, bisa aja ga berlaku semua ya
+
+# Contoh nyata: Cillium CNI gabisa pake ipBlock
+# See : https://docs.cilium.io/en/latest/network/kubernetes/policy/#k8s-policy
+
+kind: NetworkPolicy
+
+metadata:
+  name: network-policy
+spec:
+  podSelector:
+    matchLabels:
+      name: nginx
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              name: nginx
+    - from:
+        - ipBlock:
+            cidr: "0.0.0.0/0"

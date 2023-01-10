@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+
+# INI JALAN SYARAT KETENTUAN BERLAKU
+# LIHAT DOKUMENTASI
+kind: NetworkPolicy
+
+metadata:
+  name: policy-name
+spec:
+  podSelector:
+    matchLabels:
+      label-key: label-name
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              label-key: label-name
+    - from:
+        - ipBlock:
+            cidr: "0.0.0.0/0"
+      ports:
+        - protocol: TCP
+          port: 80

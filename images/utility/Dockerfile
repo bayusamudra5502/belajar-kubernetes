@@ -1,3 +1,5 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk --no-cache add curl
+RUN apt update
+RUN apt full-upgrade
+RUN apt install curl dnsutils iputils-ping traceroute
